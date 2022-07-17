@@ -1,0 +1,1 @@
+web: gunicorn CaliforniaHousing_project.wsgi

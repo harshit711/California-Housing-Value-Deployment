@@ -1,0 +1,231 @@
+.form-input{
+    width:90%;
+    margin-left:5%;
+}
+#container{
+    width:70%;
+    height:96%;
+    margin-top:1%;
+    margin-left:13%;
+    border-radius:15px;
+    position:fixed;
+}
+#form-div{
+    height:96%;
+    width:27%;
+    background-color:rgb(218, 226, 231);
+    margin-left:44%;
+    position: fixed;
+    border-radius:15px;
+}
+#top-div{
+    margin-top:5%;
+}
+#form-button{
+    margin-left:73%;
+    margin-top:3%;
+}
+#layoutdiv{
+    height:50%;
+    width:45%;
+    position: fixed;
+    border-radius:15px;
+    background-color:rgb(214, 228, 235, 0.89);
+    background-repeat:no-repeat;
+    margin-top:12%;
+}
+#headingdiv{
+    margin-top:2%;
+    margin-left:18%;
+    color:rgb(60, 54, 55);
+}
+#bkg{
+    background-repeat: no-repeat;
+    width: 100%;
+}
+#objective-div{
+    margin-top:2%;
+    margin-left:5%;
+}
+#email-div{
+    margin-top:2%;
+    margin-left:5%;
+}
+#email{
+    float:left;
+    height:5%;
+    width:5%;
+    margin-top:1px;
+}
+#emailheading{
+    margin-left:6%;
+}
+#emailid{
+    margin-left:6%;
+}
+#phone-div{
+    margin-top:2%;
+    margin-left:5%;
+}
+#phone{
+    float:left;
+    height:5%;
+    width:5%;
+    margin-top:8px;
+}
+#phoneheading{
+    margin-left:6%;
+}
+#phoneno{
+    margin-left:6%;
+}
+#social-div{
+    clear:both;
+}
+#line1div{
+    width: 66%;
+    float:left;
+    height: 3%;
+    background-color:rgb(60, 54, 55);
+    opacity:100%;
+    margin-top:2%;
+    margin-left:5%;
+}
+#heart{
+    height:3%;
+    width:3%;
+}
+#text{
+    display:inline;
+    color:white;
+    margin-left:19%;
+    font-weight:400;
+}
+#line2{
+    float:right;
+    width:18.4%;
+    margin-top:2%;
+    border: solid 12px;
+    border-color: rgb(60, 54, 55);
+    opacity:100%;
+}
+#linkedin{
+    margin-top:1.5%;
+    margin-left: 0.5%;
+    height:4.5%;
+    width:4.5%;
+    color:rgb(60, 54, 55);
+}
+#github{
+    margin-top:1.5%;
+    height:4.5%;
+    width:4.5%;
+}
+@media only screen and (min-width: 1600px){
+    #layoutdiv{
+        height: 40%;
+        width:44%;
+        margin-top:9%;
+    }
+    #form-div{
+        height:75%;
+        margin-left:43.5%;
+    }
+    #container{
+        margin-top: 7%;
+    }
+    #headingdiv{
+        margin-left:28%;
+    }
+    #text{
+        margin-left: 18%;
+        font-size: 130%;
+    }
+    #line2{
+        width:20.5%;
+        border:solid 16px;
+        border-color: rgb(60, 54, 55);
+    }
+    #objective-div, #email-div, #phone-div, #line1div{
+        margin-left: 3%;
+    }
+
+}
+@media only screen and (max-width: 415px){
+    body{
+        overflow-x:hidden;
+    }
+    #layoutdiv{
+        height:31%;
+        width:96%;
+        margin-top:3%;
+        position:absolute;
+    }
+    #container{
+        margin-left:2%;
+        position:inherit;
+    }
+    #form-div{
+        width:96%;
+        height:100%;
+        margin-left:0%;
+        margin-top:60%;
+        position:absolute;
+    }
+    #form-button{
+        margin-left:53%;
+        margin-top:-5%;
+    }
+    .form-input{
+        margin-left:3%;
+        width:95%;
+    }
+    h3{
+        font-size:66%;
+        font-weight:700;
+    }
+    #headingdiv{
+        margin-top:2%;
+        margin-left:27%;
+    }
+    h4{
+        font-size:63%;
+    }
+    #email{
+        height:3%;
+        width:3%;
+    }
+    #emailheading{
+        font-size:64%;
+        margin-left:4%;
+    }
+    #phone{
+        height:3%;
+        width:3%;
+        margin-top:2px;
+    }
+    #phoneheading{
+        margin-left:4%;
+        font-size:64%;
+    }
+    #line1div{
+        width:62%;
+    }
+    #text{
+        font-size:60%;
+        margin-left:18%;
+    }
+    #linkedin, #github{
+        width:6.5%;
+        height:6.5%;
+        margin-top:2%;
+    }
+    #line2{
+        width:17.8%;
+        margin-top:2.2%;
+    }
+    #form-button{
+        margin-top:2%;
+        margin-left:75%;
+    }
+}

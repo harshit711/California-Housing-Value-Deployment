@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Housing Value</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="shortcut icon" href="#">
+</head>
+<body id="bkg" style="background-image: url({% static 'images/house.jpg' %})">
+    <div id="container">
+        <div id="layoutdiv">
+            <div id="headingdiv">
+                <h3><u>CALIFORNIA HOUSING VALUE</u></h3>
+            </div>
+            <div id="objective-div">
+                <div id="objective">
+                    <h4><i>Calculate the median house value for California districts, expressed in hundreds of
+                        thousands of dollars ($100,000)</i></h4>
+                </div>
+            </div>
+            <div id="email-div">
+                <img id="email" src="{% static 'images/email.png' %}"><h3 id="emailheading">EMAIL</h3>
+                <div id="emailid">
+                    <h4><i>harshittaneja3@gmail.com</i></h4>
+                </div>
+            </div>
+            <div id="phone-div">
+                <img id="phone" src="{% static 'images/phone.png' %}"><h3 id="phoneheading">PHONE</h3>
+                <div id="phoneno">
+                    <h4><i>981166XXXX</i></h4>
+                </div>
+            </div>
+            <div id="social-div">
+                <div id="line1div">
+                    <p id="text">Made with <img id="heart" src="{% static 'images/heart.png' %}"> by Harshit Kumar Taneja</p>
+                </div>
+                <hr id="line2">
+                <a href="https://www.linkedin.com/in/harshit-kumar-taneja-3baa431ba/" target="_blank"><img id="linkedin" src="{% static 'images/linkedin.png' %}"></a>
+                <a href="https://github.com/harshit711" target="_blank"><img id="github" src="{% static 'images/github.png' %}"></a>
+            </div>
+        </div>
+        <div id="form-div">
+            <form action="", method="post", onsubmit="showalert()", id="formID">
+
+                {% csrf_token %}
+
+                <div class="form-floating mb-3 form-input" id="top-div">
+                    <input class="form-control form-control-sm" type="number" min="0" step="any" value ={{a}} class="form-control" name="MedInc" id="MedInc" placeholder="MedInc" required>
+                    <label for="MedInc">Enter Median Income (in hundred thousands)</label>
+                </div>
+                <div class="form-floating  mb-3 form-input">
+                    <input class="form-control form-control-sm" type="number" min="0" step="any" value ={{b}} class="form-control" name="HouseAge" placeholder="HouseAge" id="HouseAge" required>
+                    <label for="HouseAge">Enter Median House Age</label>
+                </div>
+                <div class="form-floating mb-3 form-input">
+                    <input class="form-control form-control-sm" type="number" min="0" step="any" value ={{c}} class="form-control" name="AveBedrms" placeholder="AveBedrms" id="AveBedrms" required>
+                    <label for="AveBedrms">Enter Average Bedrooms</label>
+                </div>
+                <div class="form-floating mb-3 form-input">
+                    <input class="form-control form-control-sm" type="number" min="0" step="any" value ={{d}} class="form-control" id="Population" name="Population" placeholder="Population" required>
+                    <label for="Population">Enter Population (in hundred thousands)</label>
+                </div>
+                <div class="form-floating mb-3 form-input">
+                    <input class="form-control form-control-sm" type="number" min="0" step="any" value ={{e}} class="form-control" id="AveOccup" placeholder="AveOccup" name="AveOccup" required>
+                    <label for="AveOccup">Enter number of Household Members</label>
+                </div>
+                <div class="form-floating mb-3 form-input" id="cityinput">
+                    <select name="City" class="form-control" id="City" placeholder="City" required>
+                        <option value="City" disabled selected>Select City</option>
+                        {% if ans %}
+                            <option value="{{h}}" selected>{{h}}</option>
+                        {% endif %}
+                        {% for city in city_val %}
+                            <option value="{{city}}">{{city}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-floating mb-3 form-input" id="countyinput">
+                    <select name="County" class="form-control" id="County" placeholder="County" required>
+                        <option value="County" disabled selected>Select County</option>
+                        {% if ans %}
+                            <option value="{{f}}" selected>{{f}}</option>
+                        {% endif %}
+                        {% for county in county_val %}
+                            <option value="{{county}}">{{county}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-floating mb-3 form-input">
+                    <select name="Road" class="form-control" id="Road" placeholder="Road" required>
+                        <option value="Road" disabled selected>Select Road</option>
+                        {% if ans %}
+                            <option value="{{g}}" selected>{{g}}</option>
+                        {% endif %}
+                        {% for road in road_val %}
+                            <option value="{{road}}">{{road}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% if ans %}
+                    <div class="input-group input-group-lg form-input" id="price-div">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Median price</span>
+                      <input type="text" class="form-control" placeholder="${{ans}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly>
+                    </div>
+                {% endif %}
+                <button id="form-button" type="submit" class="btn btn-outline-success">Calculate</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function showalert(){
+            var city = document.getElementById("City").value;
+            var county = document.getElementById("County").value;
+            var road = document.getElementById("Road").value;
+
+            if(city == "City"){
+                document.getElementById('City').focus();
+                alert("Please select a valid city!");
+                event.preventDefault();
+            }
+            else if(county == "County"){
+                document.getElementById('County').focus();
+                alert("Please select a valid county!");
+                event.preventDefault();
+            }
+            else if(road == "Road"){
+                document.getElementById('Road').focus();
+                alert("Please select a valid road!");
+                event.preventDefault();
+            }
+        };
+    </script>
+</body>
+</html>
